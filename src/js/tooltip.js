@@ -19,10 +19,8 @@ export default class Tooltip {
 
     console.log(element.getBoundingClientRect());
 
-    const {right, top, height} = element.getBoundingClientRect();
+    const {right, top} = element.getBoundingClientRect();
 
-    console.log('top = ' + top);
-    console.log('right = ' + right) 
 
     tooltipElement.style.left = right + 5 + 'px';
     tooltipElement.style.top = top + element.offsetHeight / 2 - tooltipElement.offsetHeight / 2 + 'px';

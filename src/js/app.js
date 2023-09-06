@@ -79,10 +79,10 @@ const elementOnBlur = e => {
   } else {
     const currentErrorMessage = actualMessages.find(item => item.name == el.name);
 
-  if (currentErrorMessage) {
-    tooltipFactory.removeTooltip(currentErrorMessage.id)
+    if (currentErrorMessage) {
+      tooltipFactory.removeTooltip(currentErrorMessage.id)
+    }
   }
-}
 
   el.removeEventListener('blur', elementOnBlur);
 }

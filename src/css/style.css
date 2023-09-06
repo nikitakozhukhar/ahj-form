@@ -17,19 +17,7 @@ form {
 :invalid {
   /* border: 1px solid red */
 }
-.btn-popover {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  padding: 0.375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  border: 1px solid #ced4da;
-  color: #fff;
-  background-color: #f05d5d;
-}
+
 .btn {
   display: inline-block;
   text-align: center;
