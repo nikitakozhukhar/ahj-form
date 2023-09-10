@@ -27,7 +27,7 @@ export default class Popover {
 
 		
 		document.body.appendChild(popoverElement);
-		
+		console.log(this._popover)
 		console.log(element.getBoundingClientRect());
 
 		const {left, top} = element.getBoundingClientRect();
@@ -38,7 +38,7 @@ export default class Popover {
 		popoverElement.style.left = left - 26 + 'px';
     	popoverElement.style.top = top - element.offsetHeight * 2.8 + 'px';
 
-		// return id
+		return id
 
 	}
 
