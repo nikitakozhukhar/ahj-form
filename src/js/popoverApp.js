@@ -20,7 +20,7 @@ popoverBtn.addEventListener('click', e => {
 		id: popover.showPopover(title, bodyText, element),
 	});
 	// 
-	actualPopover.forEach(p => popover.removePopover(p.id));
+	// actualPopover.forEach(p => popover.removePopover(p.id));
 	// actualPopover = [];
 	
 	console.log(actualPopover)
