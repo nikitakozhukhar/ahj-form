@@ -27,7 +27,7 @@ export default class Popover {
 
 		
 		document.body.appendChild(popoverElement);
-		
+		console.log(this._popover)
 		console.log(element.getBoundingClientRect());
 
 		const {left, top} = element.getBoundingClientRect();

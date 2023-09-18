@@ -5,8 +5,7 @@ const popoverBtn = document.querySelector('.btn-popover');
 
 const popover = new Popover();
 
-let actualPopover = []; //18.09
-
+let actualPopover = [];
 
 popoverBtn.addEventListener('click', e => {
 	e.preventDefault();
