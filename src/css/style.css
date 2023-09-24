@@ -1,21 +1,13 @@
 body {
-  color: #999;
+  color: black;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-p {
-  color: black;
-}
-
 form {
   margin-top: 200px;
-}
-
-:invalid {
-  /* border: 1px solid red */
 }
 
 .btn {
@@ -48,4 +40,20 @@ form {
   border: 1px solid lightgrey;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
   z-index: 999;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+.title {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.demo-btn {
+  display: block;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
 }

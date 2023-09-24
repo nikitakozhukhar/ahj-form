@@ -1,52 +1,53 @@
 export default class Popover {
-	constructor() {
-		this._popover = [];
-	}
+	constructor(targetEl, title, text) {
+    this.targetEl = targetEl;
+    this.title = title;
+    this.text = text;
 
-	showPopover(title, bodyText, element) {
-		const popoverElement = document.createElement('div');
-		popoverElement.className = 'popover';
+    this.onPopoverShow = this.onPopoverShow.bind(this);
+    this.onPopoverClose = this.onPopoverClose.bind(this);
 
-		const popoverTitle = document.createElement('h3');
-		popoverTitle.className = 'popover-title';
-		popoverTitle.textContent = title;
+    this.targetEl.addEventListener('click', this.onPopoverShow);
+  }
 
-		const popoverBody = document.createElement('p');
-		popoverBody.className = 'popover-body';
-		popoverBody.textContent = bodyText;
+  markUp() {
+    return `
+      <div class="popover-title"><span class="popover-title__text">${this.title}</span></div>
+      <div class="popover-text">${this.text}</div>
+      <button class="popover-btn">Ok</button>
+    `;
+  }
 
-		popoverElement.appendChild(popoverTitle);
-		popoverElement.appendChild(popoverBody);
+  onPopoverShow() {
+    this.popover = document.createElement('div');
+    this.popover.classList.add('popover');
+    this.popover.innerHTML = this.markUp();
+    document.body.appendChild(this.popover);
 
-		const id = performance.now();
+    const btnOk = this.popover.querySelector('.popover-btn');
+    btnOk.addEventListener('click', this.onPopoverClose);
+    window.addEventListener('resize', this.onPopoverClose);
 
-		this._popover.push({
-			id,
-			element: popoverElement,
-		})
+    const { top, left, bottom } = this.targetEl.getBoundingClientRect();
 
-		
-		document.body.appendChild(popoverElement);
-		console.log(this._popover)
-		console.log(element.getBoundingClientRect());
+    // поповер сверху или снизу элемента
+    if (top > this.popover.offsetHeight) {
+      this.popover.style.left = `${left + this.targetEl.offsetWidth / 2 - this.popover.offsetWidth / 2}px`;
+      this.popover.style.top = `${top - this.popover.offsetHeight - 20}px`;
+    } else {
+      this.popover.classList.remove('popover');
+      this.popover.classList.add('popover-bottom');
+      this.popover.style.left = `${left + this.targetEl.offsetWidth / 2 - this.popover.offsetWidth / 2}px`;
+      this.popover.style.top = `${bottom + 20}px`;
+    }
+    this.targetEl.removeEventListener('click', this.onPopoverShow);
+    this.targetEl.addEventListener('click', this.onPopoverClose);
+  }
 
-		const {left, top} = element.getBoundingClientRect();
-
-		console.log(element.offsetHeight);
-		console.log('top' + '=' + top);
-
-
-		popoverElement.style.left = left - 26 + 'px';
-    	popoverElement.style.top = top - element.offsetHeight * 2.8 + 'px';
-
-		return id
-
-	}
-
-	removePopover(id) {
-		const popover = this._popover.find(p => p.id == id);
-		popover.element.remove();
-		this._popover = this._popover.filter(t => t !== id);
-	}
-
+  onPopoverClose() {
+    this.popover.remove();
+    this.targetEl.addEventListener('click', this.onPopoverShow);
+    window.removeEventListener('resize', this.onPopoverClose);
+  }
+	
 }
