@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-jest.setTimeout(30000);
+jest.setTimeout(10000);
 
 describe('popover show', () => {
   let browser;
@@ -15,7 +15,7 @@ describe('popover show', () => {
     page = await browser.newPage();
   });
 
-  
+ 
   test('popover should rendered on page with class .popover by click on button', async () => {
     
     await page.goto('http://localhost:8080');
@@ -28,6 +28,9 @@ describe('popover show', () => {
     await button.click();
 
     await page.waitForSelector('.popover');
+    await page.waitForSelector('.popover-title');
+    await page.waitForSelector('.popover-text');
+    await page.waitForSelector('.popover-btn');
   });
 
   afterEach(async () => {
