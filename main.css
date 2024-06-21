@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+.popover-container {
+	display: flex;
+	justify-content: space-around;
+  margin-top: 200px;
+}
+.popover {
+  position: absolute;
+  width: 250px;
+  font-size: 12px;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.popover::before {
+  position: absolute;
+  z-index: -1;
+  bottom: -10px;
+  right: 50%;
+  transform: translate(50%) rotate(45deg);
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.popover::after {
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translate(50%) rotate(45deg);
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: #e4e4e4;
+}
+
+.popover-bottom {
+  position: absolute;
+  width: 250px;
+  font-size: 12px;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.popover-bottom::before {
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  right: 50%;
+  transform: translate(50%) rotate(45deg);
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color:#f0f0f0;;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.popover-bottom::after {
+  position: absolute;
+  top: -10px;
+  right: 50%;
+  transform: translate(50%) rotate(45deg);
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color:#f0f0f0;;
+}
+
+.popover-title {
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+	font-size: 1.3em;
+  text-align: left;
+  background-color: #f0f0f0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.popover-title__text {
+  position: relative;
+  z-index: 2;
+}
+
+.popover-text {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.demo-btn {
+  display: block;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.popover-btn {
+  display: block;
+  margin: 0 25px 10px auto;
+  padding: 3px 10px;
+  width: 60px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 24px 0px, rgba(0, 0, 0, 0.18) 0px 0px 0px 1px;
+  cursor: pointer;
+}
